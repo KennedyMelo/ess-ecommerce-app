@@ -10,4 +10,4 @@ Scenario: Carrinho de compras completo
 Ideia geral: O usuário seleciona seus itens para o carrinho e consegue concluir a compra de forma bem sucedida.
 
 Scenario: Carrinho de compras incompleto
-Ideia geral: O usuário seleciona seus itens, mas na hora de concluir dá algum problema, seja pela falta de endereço ou até mesmo por um erro no pagamento
+Ideia geral: O usuário seleciona seus itens, mas na hora de concluir dá algum problema, seja pela falta de endereço ou até mesmo por um erro no pagamentoo
