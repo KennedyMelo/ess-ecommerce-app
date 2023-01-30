@@ -16,7 +16,3 @@ consegue concluir a compra de forma bem sucedida.
 Scenario: Carrinho de compras incompleto (cenário de falha)
 Ideia geral: O usuário seleciona seus itens, mas na hora de concluir dá algum problema,
 seja pela falta de endereço ou até mesmo por um erro no pagamento
-    Given: o usuário seleciona os produtos para o carrinho
-    When: ele chega na hora de fazer o pagamento
-    Then: ele percebe que não está logado e que não consegue efetuar a compra
-    teste master
