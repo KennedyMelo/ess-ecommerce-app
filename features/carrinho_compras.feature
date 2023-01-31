@@ -22,3 +22,5 @@ seja pela falta de endereço ou até mesmo por um erro no pagamento
     Given: o usuário seleciona os produtos para o carrinho
     When: ele chega na hora de fazer o pagamento
     Then: ele percebe que não está logado e que não consegue efetuar a compra
+    teste
+    teste
