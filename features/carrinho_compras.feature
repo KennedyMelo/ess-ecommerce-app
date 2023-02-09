@@ -1,26 +1,35 @@
-FUNCIONALIDADE 3: Carrinho de compras (João)
+Feature: Carrinho de compras
+        Situações em que o usuário escolhe os itens que deseja
+        comprar para poder efetuar o pagamento.
 
-Scenario: Carrinho de compras vazio (cenário de falha)
-Ideia geral: O usuário tenta apertar no botão de efetuar o pagamento
-de um carrinho de compras vazio, mas é impedido pela não seleção de produtos.
+Scenario: Carrinho de compras vazio
+Given o usuário "João" está na página de finalização de pedido
+And o carrinho de compras está vazio
+When o usuário "João" tenta efetuar o pagamento
+Then a mensagem "Seu carrinho está vazio. Adicione produtos antes de efetuar o pagamento." é exibida
+And o botão "Efetuar pagamento" está desativado.
 
-Scenario: Carrinho de compras abandonado (cenário de falha)
-Ideia geral: O usuário seleciona itens para o seu carrinho de compras,
-porém ele sai do site. Quando ele voltar o carrinho deve estar com os
-itens que ele selecionou anteriormente.
+Scenario: Carrinho de compras abandonado
+Given que o usuário "João" está navegando no site
+And o usuário "João" adiciona alguns itens ao seu carrinho de compras
+When o usuário "João" sai do site
+And depois volta ao site
+Then os itens adicionados anteriormente ao carrinho de compras continuam presentes
+And o usuário "João" pode continuar e concluir sua compra normalmente.
 
-Scenario: Carrinho de compras completo (cenhário de sucesso)
-Ideia geral: O usuário seleciona seus itens para o carrinho e
-consegue concluir a compra de forma bem sucedida.
+Scenario: Carrinho de compras completo
+Given que o usuário "João" está navegando no site
+And o usuário "João" adiciona itens ao seu carrinho de compras
+When o usuário "João" vai para a página de finalização de pedido
+And preenche as informações necessárias como endereço de entrega e método de pagamento
+And clica no botão "Efetuar pagamento"
+Then a mensagem "Obrigado, seu pedido foi concluído com sucesso!" é exibida
+And o usuário "João" é redirecionado para a página de confirmação do pedido.
 
-Scenario: Carrinho de compras incompleto (cenário de falha)
-Ideia geral: O usuário seleciona seus itens, mas na hora de concluir dá algum problema,
-<<<<<<< HEAD
-seja pela falta de endereço ou até mesmo por um erro no pagamento
-=======
-seja pela falta de endereço ou até mesmo por um erro no pagamento
-    Given: o usuário seleciona os produtos para o carrinho
-    When: ele chega na hora de fazer o pagamento
-    Then: ele percebe que não está logado e que não consegue efetuar a compra
-    teste
-    teste
+Scenario: Carrinho de compras incompleto
+Given que o usuário "João" está navegando no site
+And o usuário "João" adiciona itens ao seu carrinho de compras
+When o usuário "João" vai para a página de finalização de pedido
+And tenta efetuar o pagamento sem preencher as informações necessárias ou com informações incorretas
+Then a mensagem "Desculpe, houve um problema ao concluir o seu pedido. Por favor, verifique as informações e tente novamente." é exibida
+And o usuário "João" é impedido de concluir a compra.
