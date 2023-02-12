@@ -32,7 +32,7 @@ Then o usuário "João" é redirecionado para a página de finalização de pedi
 And o usuário "João" preenche as informações necessárias como endereço de entrega e método de pagamento
 When o usuário "João" clica no botão "Concluir compra"
 Then a mensagem "Obrigado, seu pedido foi concluído com sucesso!" é exibida
-And o usuário "João" é redirecionado para a página de confirmação do pedido.
+And o usuário "João" é redirecionado para a página de histórico de pedidos
 
 Scenario: Carrinho de compras incompleto
 Given que o usuário "João" está navegando no site
