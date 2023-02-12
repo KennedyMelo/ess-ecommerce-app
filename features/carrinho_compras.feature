@@ -11,8 +11,8 @@ And apenas o botão "Comece a comprar agora" é exibido na página
 And o botão de "finalização de pedido" não está presente na página. 
 
 Scenario: Carrinho de compras abandonado
-Given que o usuário "João" está navegando no site
-And o usuário "João" adiciona alguns itens ao seu carrinho de compras
+Given que o usuário "João" está na página principal
+And o usuário "João" adiciona os itens "Camisa Puma - masculino" e "Camisa Adidas - masculino" ao carrinho de compras
 When o usuário "João" sai do site
 And depois volta ao site
 Then os itens adicionados anteriormente ao carrinho de compras continuam presentes
