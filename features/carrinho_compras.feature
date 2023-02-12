@@ -3,11 +3,12 @@ Feature: Carrinho de compras
         comprar para poder efetuar o pagamento.
 
 Scenario: Carrinho de compras vazio
-Given o usuário "João" está na página de finalização de pedido
+Given o usuário "João" está na página de carrinho de compras
 And o carrinho de compras está vazio
-When o usuário "João" tenta efetuar o pagamento
-Then a mensagem "Seu carrinho está vazio. Adicione produtos antes de efetuar o pagamento." é exibida
-And o botão "Efetuar pagamento" está desativado.
+When o usuário "João" acessa a página de carrinho de compras
+Then a mensagem "Seu carrinho está vazio." é exibida
+And apenas o botão "Comece a comprar agora" é exibido na página
+And o botão de "finalização de pedido" não está presente na página. 
 
 Scenario: Carrinho de compras abandonado
 Given que o usuário "João" está navegando no site
