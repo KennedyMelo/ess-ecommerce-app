@@ -18,12 +18,19 @@ And depois volta ao site
 Then os itens adicionados anteriormente ao carrinho de compras continuam presentes
 And o usuário "João" pode continuar e concluir sua compra normalmente.
 
-Scenario: Carrinho de compras completo
-Given que o usuário "João" está navegando no site
-And o usuário "João" adiciona itens ao seu carrinho de compras
-When o usuário "João" vai para a página de finalização de pedido
-And preenche as informações necessárias como endereço de entrega e método de pagamento
-And clica no botão "Efetuar pagamento"
+Scenario: Carrinho de compras para finalização de pedido
+Given que o usuário "João" está na página principal
+And o usuário "João" adiciona os itens "Camisa Puma - masculino" e "Camisa Adidas - masculino" ao carrinho de compras
+When o usuário "João" vai para a página do carrinho de compras
+Then o usuário "João" consegue ver os produtos que escolheu
+And o botão "Finalizar pedido" é exibido
+
+Scenario: Finalização de pedido
+Given que o usuário "João" está na página de carrinho de compras com os produtos selecionados
+When o usuário "João" clica no botão "Finalizar pedido"
+Then o usuário "João" é redirecionado para a página de finalização de pedido
+And o usuário "João" preenche as informações necessárias como endereço de entrega e método de pagamento
+When o usuário "João" clica no botão "Concluir compra"
 Then a mensagem "Obrigado, seu pedido foi concluído com sucesso!" é exibida
 And o usuário "João" é redirecionado para a página de confirmação do pedido.
 
