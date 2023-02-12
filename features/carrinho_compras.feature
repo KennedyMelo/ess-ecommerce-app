@@ -23,7 +23,7 @@ Given que o usuário "João" está na página principal
 And o usuário "João" adiciona os itens "Camisa Puma - masculino" e "Camisa Adidas - masculino" ao carrinho de compras
 When o usuário "João" vai para a página do carrinho de compras
 Then o usuário "João" consegue ver os produtos que escolheu
-And o botão "Finalizar pedido" é exibido
+And o botão "Finalizar pedido" é exibido e pronto para ser selecionado
 
 Scenario: Finalização de pedido
 Given que o usuário "João" está na página de carrinho de compras com os produtos selecionados
@@ -37,7 +37,8 @@ And o usuário "João" é redirecionado para a página de histórico de pedidos
 Scenario: Carrinho de compras incompleto
 Given que o usuário "João" está navegando no site
 And o usuário "João" adiciona itens ao seu carrinho de compras
+And o usuário "João" não tem endereços cadastrados
 When o usuário "João" vai para a página de finalização de pedido
-And tenta efetuar o pagamento sem preencher as informações necessárias ou com informações incorretas
-Then a mensagem "Desculpe, houve um problema ao concluir o seu pedido. Por favor, verifique as informações e tente novamente." é exibida
-And o usuário "João" é impedido de concluir a compra.
+And tenta efetuar o pagamento sem preencher o endereço
+Then o usuário "João" é impedido de fazer a compra
+And a mensagem "Desculpe, houve um problema ao concluir o seu pedido. Por favor, preencha o endereço de entrega e tente novamente." é exibida
